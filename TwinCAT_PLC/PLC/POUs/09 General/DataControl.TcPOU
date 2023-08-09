@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="DataControl" Id="{3b0a149f-17b8-47d2-b8d7-915497e2a892}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DataControl
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Use what's needed and delete unused methods
+
+// IF GVL_System.bResetSequenceTimerDefaults 	THEN
+// 	M_ResetSequenceTimerDefaults();
+// 	GVL_System.bResetSequenceTimerDefaults	:= FALSE;
+// END_IF
+
+
+// IF GVL_System.bSetDebounceTimes 	THEN
+// 	M_SetDebounceTimes();
+// 	GVL_System.bSetDebounceTimes	:= FALSE;
+// END_IF
+
+
+//M_WritePersistentData();
+
+]]></ST>
+    </Implementation>
+    <Method Name="M_ResetSequenceTimerDefaults" Id="{b5cd4cf5-19b3-4ec6-99ec-e2c8758df2d1}">
+      <Declaration><![CDATA[
+// Use this method to set Steptimes for sequence steps 
+// This is copied from Steptimers tab in the Grafcet FD
+
+METHOD M_ResetSequenceTimerDefaults : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+// Example
+
+// GVL_Safety.stSafetySeq.aStepTimes[0] := T#300MS;
+// GVL_Safety.stSafetySeq.aStepTimes[1] := T#300MS;
+// GVL_Safety.stSafetySeq.aStepTimes[2] := T#300MS;
+// GVL_Safety.stSafetySeq.aStepTimes[3] := T#300MS;
+// GVL_Safety.stSafetySeq.aStepTimes[4] := T#300MS;
+// GVL_Safety.stSafetySeq.aStepTimes[5] := T#300MS;
+
+// GVL_Seq.stExampleSequence.aStepTimes[0] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[1] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[2] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[3] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[4] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[5] := T#500MS;
+// GVL_Seq.stExampleSequence.aStepTimes[6] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[7] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[8] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[9] := T#0MS;
+// GVL_Seq.stExampleSequence.aStepTimes[10] := T#0MS;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetDebounceTimes" Id="{0145e9e5-ca5a-4da8-a327-9c8d2900ac0e}">
+      <Declaration><![CDATA[
+// Use this method to set debounce timers on I/O
+METHOD M_SetDebounceTimes : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+// Example
+
+//GVL_IO.PE101.tDebounceOff_PT	:= T#100MS;
+//GVL_IO.PE103.tDebounceOn_PT	:= T#250MS;
+
+
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_WritePersistentData" Id="{852de7ea-da12-46e0-9e26-1ace5dbd6b54}">
+      <Declaration><![CDATA[
+//To be Used only if IPC has 1-second UPS (for example: CX9020)
+// If not needed, delete from Project 
+
+METHOD M_WritePersistentData : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	FB_WritePersistentData		: FB_WritePersistentData;
+	RT_WritePersistent			: R_TRIG;
+	bWritePersistent			: BOOl;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+
+RT_WritePersistent(CLK:=bWritePersistent);
+FB_WritePersistentData(NETID:='', PORT:=851, START:= RT_WritePersistent.Q, TMOUT:=T#1S );
+bWritePersistent	:= FALSE;		]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

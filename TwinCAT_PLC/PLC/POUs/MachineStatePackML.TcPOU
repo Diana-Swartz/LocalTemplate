@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="MachineStatePackML" Id="{1662ddd0-7fd8-4ecf-9015-da64385a3192}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MachineStatePackML
+VAR
+	
+ //MachineStateCurrent	: INT;
+ machineState			: FB_PackML;
+tonStopRequest	: TON;
+(*	Aborted		:= 0,
+	Aborting	:= 1,
+	
+	Clearing	:= 2,
+	Stopping	:= 3,
+	Stopped		:= 4,
+	
+	Resetting	:= 5,
+	Idle		:= 6,
+	
+	Starting	:= 7,
+	Execute		:= 8,
+	
+	Holding		:= 9,
+	Unholding	:= 10,
+	Held		:= 11,
+	
+	Completing	:= 12,
+	Complete	:= 13
+	
+*)
+	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// Conditions are just an exmaple; modify as per application requirements.
+
+
+// Machine state
+machineState(stPackML := GVL_System.MachineStates);
+
+
+// Abort - (Abort Conditions eg EStop pressed)
+GVL_System.MachineStates.bAbort := (NOT GVL_Safety.stSafety.bEStopOk AND NOT GVL_Safety.stSafety.bEStopResetRequired);
+								  
+// Clear - (Clear Conditions eg EStop Healthy)
+GVL_System.MachineStates.bClear := GVL_Safety.stSafety.bEStopOk;
+
+// Stop - (Stop conditions eg Stop Button)
+GVL_System.MachineStates.bStop := tonStopRequest.Q;
+
+// Reset - Reset button
+GVL_System.MachineStates.bReset := GVL_Safety.bResetTrigger; 
+
+// Start - Start button
+GVL_System.MachineStates.bStart := GVL_Safety.stSafety.bEStopOk; 
+
+// Hold - (Hold Conditions eg Request to Enter PB on a safety door/cage)
+
+GVL_System.MachineStates.bHold := GVL_Safety.bRequestToEnter;
+
+// Unhold - (UnHold Conditions eg Reset Trigger)
+GVL_System.MachineStates.bUnhold := GVL_Safety.bResetTrigger;
+
+// Holding - From Sequences
+GVL_System.MachineStates.bHoldingSC := GVL_Seq.stExampleSequence.bHeld ;
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Other Conditions (Delete if not used)
+
+// Homing Required conditions
+IF GVL_System.MachineStates.bClearing (*  AND Other conditions *) THEN
+	GVL_Seq.ExampleSequence_bHomingRequired := TRUE;
+END_IF
+	
+// Stop the machine if a hold is requested but not achieved within 10s
+tonStopRequest(IN:=(GVL_System.MachineStates.bHold AND NOT GVL_System.MachineStates.bHeld), PT:=T#10S);
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+// Unconditional
+GVL_System.MachineStates.bAbortingSC 	:= TRUE;
+GVL_System.MachineStates.bClearingSC 	:= TRUE;
+GVL_System.MachineStates.bStoppingSC 	:= TRUE;
+GVL_System.MachineStates.bResettingSC	:= TRUE;
+GVL_System.MachineStates.bStartingSC 	:= TRUE;
+GVL_System.MachineStates.bUnholdingSC := TRUE;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

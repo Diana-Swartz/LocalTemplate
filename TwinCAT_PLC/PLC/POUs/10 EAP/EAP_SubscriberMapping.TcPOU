@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="EAP_SubscriberMapping" Id="{bb90f156-8291-41f2-897b-2dfea24f27b8}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. © 2020 
+	www.automate-x.nz 	
+	
+	Map in EAP (EtherCAT Automation Protocol) Subscriber Variables.
+	This is done instead of direct subscribing due to limitations around custom DUTs in libraries.
+******************************************************************************************)
+PROGRAM EAP_SubscriberMapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//Add or remove data points according to size of arrays in GVL_EAP
+
+//GVL_EAP.aSubBool[0] :=;
+//GVL_EAP.aSubBool[1] :=;
+//GVL_EAP.aSubBool[2] :=;
+//GVL_EAP.aSubBool[3] :=;
+//GVL_EAP.aSubBool[4] :=;
+//GVL_EAP.aSubBool[5] :=;
+//GVL_EAP.aSubBool[6] :=;
+//GVL_EAP.aSubBool[7] :=;
+//GVL_EAP.aSubBool[8] :=;
+//GVL_EAP.aSubBool[9] :=;
+//GVL_EAP.aSubBool[10] :=;
+//GVL_EAP.aSubBool[11] :=;
+//GVL_EAP.aSubBool[12] := ;
+//GVL_EAP.aSubBool[13] := ;
+//GVL_EAP.aSubBool[14] := ;
+//GVL_EAP.aSubBool[15] := ;
+//GVL_EAP.aSubBool[16] := ;
+
+//GVL_EAP.aSubInt[0] := ;
+//GVL_EAP.aSubInt[1] := ;
+//GVL_EAP.aSubInt[2] := ;
+//GVL_EAP.aSubInt[3] := ;
+//GVL_EAP.aSubInt[4] := ;
+//GVL_EAP.aSubInt[5] := ;
+//GVL_EAP.aSubInt[6] := ;
+//GVL_EAP.aSubInt[7] := ;
+//GVL_EAP.aSubInt[8] := ;
+//GVL_EAP.aSubInt[9] := ;
+//GVL_EAP.aSubInt[10] := ;
+//GVL_EAP.aSubInt[11] := ;
+//GVL_EAP.aSubInt[12] := ;
+//GVL_EAP.aSubInt[13] := ;
+//GVL_EAP.aSubInt[14] := ;
+//GVL_EAP.aSubInt[15] := ;
+
+//GVL_EAP.aSubReal[0] := ;
+//GVL_EAP.aSubReal[1] := ;
+//GVL_EAP.aSubReal[2] := ;
+//GVL_EAP.aSubReal[3] := ;
+//GVL_EAP.aSubReal[4] := ;
+//GVL_EAP.aSubReal[5] := ;
+//GVL_EAP.aSubReal[6] := ;
+//GVL_EAP.aSubReal[7] := ;
+//GVL_EAP.aSubReal[8] := ;
+//GVL_EAP.aSubReal[9] := ;
+//GVL_EAP.aSubReal[10] := ;
+//GVL_EAP.aSubReal[11] := ;
+//GVL_EAP.aSubReal[12] := ;
+//GVL_EAP.aSubReal[13] := ;
+//GVL_EAP.aSubReal[14] := ;
+//GVL_EAP.aSubReal[15] := ;]]></ST>
+    </Implementation>
+    <LineIds Name="EAP_SubscriberMapping">
+      <LineId Id="3244" Count="0" />
+      <LineId Id="3242" Count="1" />
+      <LineId Id="3190" Count="16" />
+      <LineId Id="3208" Count="16" />
+      <LineId Id="3241" Count="0" />
+      <LineId Id="3226" Count="14" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

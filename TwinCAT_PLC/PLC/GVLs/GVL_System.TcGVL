@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="GVL_System" Id="{0e40bcb7-ca9f-4361-8c41-9546146583fd}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+	MachineStates: ST_PackML;
+	
+	bResetSequenceTimerDefaults			: BOOL;				// Resets Sequence Timers to Defaults
+	bSetDebounceTimes					: BOOL;				// Sets Photoeye Debounce Timers
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

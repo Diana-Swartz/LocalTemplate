@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="GVL_Safety" Id="{96ae9ea8-b089-4d21-8fcc-2b96b9cf47f0}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+
+	stSafety			: ST_Safety;
+	stSafetySeq			: ST_Sequence;
+	fbSafetySeq			: FB_Sequence;
+	
+	bResetTrigger 		: BOOL; // from HMI or physical reset button
+
+	bRun		AT %Q* 	: BOOL;	// To safety PLC
+	bErrorAck   AT %Q* 	: BOOL;	// To safety PLC
+	bReset    	AT %Q* 	: BOOL;	// To safety PLC
+	
+	bRunStatus  AT %I* 	: BOOL;	// From safety PLC
+	
+	bRequestToEnter		: BOOL; // Used with safety cages/doors
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

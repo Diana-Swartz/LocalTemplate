@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="DeviceInputs" Id="{48104948-d2e3-4fc6-8823-7eebbd61c659}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. ©  
+	www.automate-x.nz 	
+	
+	Initialise and call all function blocks for Input type devices
+******************************************************************************************)
+
+PROGRAM DeviceInputs
+VAR
+	
+//Example 
+// fbPX01    	: FB_DigitalInput;
+// fbDI1002		: FB_DigitalInput;		
+// fbPE3001		: FB_DigitalInput;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Call Function Block instances and use defined data type for the input device
+
+//Example
+//fbPE3001(	stDI	:= GVL_IO.stPE3001);
+//fbDI1001(	stDI 	:= GVL_IO.stDI1001);			
+//fbPB4001(	stDI 	:= GVL_IO.stPB4001);	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

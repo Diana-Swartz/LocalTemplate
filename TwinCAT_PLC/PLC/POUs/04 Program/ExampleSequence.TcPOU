@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="ExampleSequence" Id="{0e8e83f9-92ab-41fc-be97-3da6cd98b940}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ExampleSequence
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Call Sequence Function Block
+GVL_Seq.fbExampleSequence(stSeq:=GVL_Seq.stExampleSequence);
+GVL_Seq.stExampleSequence.sSeqName := 'Example Sequence';
+GVL_Seq.stExampleSequence.sSeqDesc := 'stExampleSequence - Example Sequence';
+
+
+(* Insert sequence based on Grafcet FD *)
+(* Changes to the sequence must be done in the FD first, then code changes can be implemented *)
+(* Add & modify steps as necessary *)
+
+CASE GVL_Seq.stExampleSequence.nStep OF
+	
+	0:	// Aborted
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Aborted';
+			
+		// Step Transitions		
+	
+	1:	// Idle
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Idle';
+		
+		
+		// Step Transitions
+		
+			
+	2:	// Fault
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Fault';
+		
+		// Step Transitions
+		
+			
+	4:	// Held
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Held';
+		
+		// Step Transitions
+		
+		
+
+	5:	// Check State
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Check State';
+		
+
+		// Step Transitions
+		
+	
+	6: // Home System
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := 'Home System';
+		
+		// Step Transitions
+		
+
+	7: // 
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := '';
+		
+		// Step Transitions
+		
+		
+	8: // 
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := '';
+		
+		// Step Transitions
+		
+	9: // 
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := '';
+		
+		// Step Transitions
+		
+	10: // 
+		// Message
+		GVL_Seq.stExampleSequence.sSeqMsg := '';
+		
+		// Step Transitions
+	
+		
+END_CASE
+
+WriteToOutputs();
+WriteToFlags();
+]]></ST>
+    </Implementation>
+    <Action Name="WriteToFlags" Id="{159e1574-a74c-40a0-b479-55e8062ba870}">
+      <Implementation>
+        <ST><![CDATA[
+
+(* Flags Setting and Resetting is determined by the sequence matrix in the Grafcet FD *)
+
+
+//		IF 		GVL_Seq.stExampleSequence.nNewStep 		= 7
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 8
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 9
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 10
+//		THEN
+//			ADD Flag Here := TRUE;
+//		ELSE
+//			ADD Flag Here := FALSE;
+//		END_IF]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="WriteToOutputs" Id="{25dee1db-5f14-4faa-a118-6c3bc16e9413}">
+      <Implementation>
+        <ST><![CDATA[
+
+
+(* Outputs Setting and Resetting is determined by the sequence matrix in the Grafcet FD *)
+
+//		IF 		GVL_Seq.stExampleSequence.nNewStep 		= 7
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 8
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 9
+//			OR 	GVL_Seq.stExampleSequence.nNewStep 		= 10
+//		THEN
+//			ADD Output Here := TRUE;
+//		ELSE
+//			ADD Output Here := FALSE;
+//		END_IF]]></ST>
+      </Implementation>
+    </Action>
+  </POU>
+</TcPlcObject>

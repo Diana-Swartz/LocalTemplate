@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.47">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..15] OF BOOL</Name>
+			<BitSize>128</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{32C8308F-F218-73C6-F432-8ACC51C137F3}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..15] OF INT</Name>
+			<BitSize>256</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{2C46078D-D1C8-B92F-019C-10410FF3C999}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..15] OF REAL</Name>
+			<BitSize>512</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-00000000000D}">REAL</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>16</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<Project ProjectGUID="{52EF9299-9E2C-44A6-BE27-0EC18CCF7247}" Target64Bit="true" ShowHideConfigurations="#x346">
+		<System>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project GUID="{0D7902C1-0F33-4917-B6F3-DA93BB4F0B14}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{FD8663AC-B329-4859-E3BD-559561A74E18}">
+					<Name>PLC Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>GVL_EAP.aSubBool</Name>
+							<Comment><![CDATA[ EAP Subscribed Array of Booleans]]></Comment>
+							<Type GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}">ARRAY [0..15] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_EAP.aSubInt</Name>
+							<Comment><![CDATA[ EAP Subscribed Array of Integers]]></Comment>
+							<Type GUID="{32C8308F-F218-73C6-F432-8ACC51C137F3}">ARRAY [0..15] OF INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_EAP.aSubReal</Name>
+							<Comment><![CDATA[ EAP Subscribed Array of Reals]]></Comment>
+							<Type GUID="{2C46078D-D1C8-B92F-019C-10410FF3C999}">ARRAY [0..15] OF REAL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_Safety.bRunStatus</Name>
+							<Comment><![CDATA[ From safety PLC]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" AreaNo="1">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>GVL_EAP.aPubBool</Name>
+							<Comment><![CDATA[ EAP Published Array of Booleans]]></Comment>
+							<Type GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}">ARRAY [0..15] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_EAP.aPubInt</Name>
+							<Comment><![CDATA[ EAP Published Array of Integers]]></Comment>
+							<Type GUID="{32C8308F-F218-73C6-F432-8ACC51C137F3}">ARRAY [0..15] OF INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_Safety.bRun</Name>
+							<Comment><![CDATA[ To safety PLC]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_EAP.aPubReal</Name>
+							<Comment><![CDATA[ EAP Published Array of Reals]]></Comment>
+							<Type GUID="{2C46078D-D1C8-B92F-019C-10410FF3C999}">ARRAY [0..15] OF REAL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_Safety.bErrorAck</Name>
+							<Comment><![CDATA[ To safety PLC]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_Safety.bReset</Name>
+							<Comment><![CDATA[ To safety PLC]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Contexts>
+						<Context>
+							<Id>0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010030</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
+	</Project>
+</TcSmProject>

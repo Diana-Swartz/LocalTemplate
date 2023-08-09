@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="InputMapping" Id="{3ce9b440-2ba4-4331-9b30-85634f2c804c}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. © 
+	www.automate-x.nz 	
+	
+	Map Physical Inputs to device structures
+******************************************************************************************)
+
+PROGRAM InputMapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+// Map physical inputs (based on PLC IO Cards in GVL IO) to device structures
+// This is IO Assignment based on PLC IO List in Equipment schedule
+
+
+
+// This EXAMPLE is based on variables in GVL_IO
+
+//EL1008 | 8-channel digital input terminal 24 V DC, 3 ms
+
+//GVL_IO.stPE3001.bInput		:=  GVL_IO.stEL1008.bDI1;
+//GVL_IO.stDI1001.bInput		:=  GVL_IO.stEL1008.bDI2;
+//GVL_IO.stPB4001.bInput		:=  GVL_IO.stEL1008.bDI3;
+// SPARE            		:=  GVL_IO.stEL1008.bDI4;
+// SPARE            		:=  GVL_IO.stEL1008.bDI5;
+// SPARE            		:=  GVL_IO.stEL1008.bDI6;
+// SPARE            		:=  GVL_IO.stEL1008.bDI7;
+// SPARE            		:=  GVL_IO.stEL1008.bDI8;
+
+
+
+//EL3024 | 4-channel Analog Input terminal ,Current , 4..20mA, 12bit, Differential
+
+//GVL_IO.stAO4001.bInput		:=  GVL_IO.stEL3024.bAI1;
+//GVL_IO.stAO3001.bInput		:=  GVL_IO.stEL3024.bAI2;
+// SPARE  					:=  GVL_IO.stEL3024.bAI3;
+// SPARE            		:=  GVL_IO.stEL3024.bAI4;
+
+
+
+
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

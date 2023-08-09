@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="EAP_PublisherMapping" Id="{0e32d5b7-f5db-4bca-9f07-ea3a87da1c19}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. © 2020 
+	www.automate-x.nz 	
+	
+	Map out EAP (EtherCAT Automation Protocol) Publisher Variables.
+	This is done instead of direct subscribing due to limitations around custom DUTs in libraries.
+******************************************************************************************)
+PROGRAM EAP_PublisherMapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//Add or remove data points according to size of arrays in GVL_EAP
+
+//GVL_EAP.aPubBool[0] :=;
+//GVL_EAP.aPubBool[1] :=;
+//GVL_EAP.aPubBool[2] :=;
+//GVL_EAP.aPubBool[3] :=;
+//GVL_EAP.aPubBool[4] :=;
+//GVL_EAP.aPubBool[5] :=;
+//GVL_EAP.aPubBool[6] :=;
+//GVL_EAP.aPubBool[7] :=;
+//GVL_EAP.aPubBool[8] :=;
+//GVL_EAP.aPubBool[9] :=;
+//GVL_EAP.aPubBool[10] :=;
+//GVL_EAP.aPubBool[11] :=;
+//GVL_EAP.aPubBool[12] := ;
+//GVL_EAP.aPubBool[13] := ;
+//GVL_EAP.aPubBool[14] := ;
+//GVL_EAP.aPubBool[15] := ;
+//GVL_EAP.aPubBool[16] := ;
+
+
+//GVL_EAP.aPubInt[0] := ;
+//GVL_EAP.aPubInt[1] := ;
+//GVL_EAP.aPubInt[2] := ;
+//GVL_EAP.aPubInt[3] := ;
+//GVL_EAP.aPubInt[4] := ;
+//GVL_EAP.aPubInt[5] := ;
+//GVL_EAP.aPubInt[6] := ;
+//GVL_EAP.aPubInt[7] := ;
+//GVL_EAP.aPubInt[8] := ;
+//GVL_EAP.aPubInt[9] := ;
+//GVL_EAP.aPubInt[10] := ;
+//GVL_EAP.aPubInt[11] := ;
+//GVL_EAP.aPubInt[12] := ;
+//GVL_EAP.aPubInt[13] := ;
+//GVL_EAP.aPubInt[14] := ;
+//GVL_EAP.aPubInt[15] := ;
+
+//GVL_EAP.aPubReal[0] := ;
+//GVL_EAP.aPubReal[1] := ;
+//GVL_EAP.aPubReal[2] := ;
+//GVL_EAP.aPubReal[3] := ;
+//GVL_EAP.aPubReal[4] := ;
+//GVL_EAP.aPubReal[5] := ;
+//GVL_EAP.aPubReal[6] := ;
+//GVL_EAP.aPubReal[7] := ;
+//GVL_EAP.aPubReal[8] := ;
+//GVL_EAP.aPubReal[9] := ;
+//GVL_EAP.aPubReal[10] := ;
+//GVL_EAP.aPubReal[11] := ;
+//GVL_EAP.aPubReal[12] := ;
+//GVL_EAP.aPubReal[13] := ;
+//GVL_EAP.aPubReal[14] := ;
+//GVL_EAP.aPubReal[15] := ;
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="EAP_PublisherMapping">
+      <LineId Id="9311" Count="0" />
+      <LineId Id="9291" Count="1" />
+      <LineId Id="8993" Count="16" />
+      <LineId Id="9248" Count="0" />
+      <LineId Id="9279" Count="0" />
+      <LineId Id="9249" Count="14" />
+      <LineId Id="9280" Count="0" />
+      <LineId Id="9295" Count="15" />
+      <LineId Id="9267" Count="1" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

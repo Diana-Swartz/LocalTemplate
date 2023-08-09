@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="GVL_IO" Id="{8bac0a8c-a6ac-4cea-9760-cd6b16725479}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+
+(* --- Digital Inputs --- *)
+
+
+//Examples
+//stPE3001				: ST_DigitalInput;
+//stDI1001				: ST_DigitalInput;
+//stPB4001				: ST_DigitalInput;
+//stES4001				: ST_Safe2ChDigitalInput;		//PLC Cabinet Estop
+
+
+(* --- Digital Outputs --- *)
+
+//Examples
+//stDO1001				: ST_DigitalOutput;		
+//stDO1002				: ST_DigitalOutput;
+//stSO4001				: ST_DigitalOutput;				//SO4001 Sounder
+
+
+(* --- Analog Inputs --- *)
+
+//Examples
+//stAI4001				: ST_AnalogueInput;		
+//stAI3001				: ST_AnalogueInput;
+
+
+
+(* --- Analog Outputs --- *)
+
+//Examples
+//stAO4001				: ST_AnalogueInput;		
+//stAO3001				: ST_AnalogueInput;
+
+
+
+(* --- PLC IO Cards --- *)
+
+//Examples
+//stEL1008				: ST_EL1008; 
+//stEL2008				: ST_EL2008;
+//stEL3024				: ST_EL3024;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

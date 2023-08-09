@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="DeviceOutputs" Id="{865d1108-e09c-4398-b8fb-1634c9d54697}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. © 
+	www.automate-x.nz 	
+	
+	Initialise and call all function blocks for Output type devices
+******************************************************************************************)
+
+PROGRAM DeviceOutputs
+VAR
+	
+//Example
+//fbDO1001	: FB_DigitalOutput;		
+//fbDO1002	: FB_DigitalOutput;    
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// Call Function Block instances and use defined data type for the input device
+
+//Example
+//fbDO1001(stDQ := GVL_IO.stDO1001);		
+//fbDO1002(stDQ := GVL_IO.stDO1002);	
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

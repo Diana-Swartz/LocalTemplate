@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="MAIN" Id="{4ba25330-7d02-4c90-9be3-142ff1bf6581}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// Add and Call Programs to be used 
+
+//	InputMapping();
+//	DeviceInputs();
+//	Seq1();
+//	Safety();
+//	MachineStatePackML();
+//	DataControl();
+//	OutputMapping();
+//	DeviceOutputs();
+//	EAP_SubscriberMapping();
+//	EAP_PublisherMapping();	
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

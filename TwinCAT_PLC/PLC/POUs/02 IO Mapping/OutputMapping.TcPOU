@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="OutputMapping" Id="{935e8c84-db9f-4f26-98ae-3aff9dc9f66a}" SpecialFunc="None">
+    <Declaration><![CDATA[(*****************************************************************************************
+	Automate-X Ltd. © 
+	www.automate-x.nz 	
+	
+	Map Physical Outputs to device structures
+******************************************************************************************)
+
+
+PROGRAM OutputMapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+
+// Map physical inputs (based on PLC IO Cards in GVL IO) to device structures
+// This is IO Assignment based on PLC IO List in Equipment schedule
+
+
+
+// This EXAMPLE is based on variables in GVL_IO
+
+//EL2008 | 8-channel digital Output terminal 24 V DC, 3 ms
+
+//GVL_IO.stDO1001.bOutput		:=  GVL_IO.stEL2008.bDO1;
+//GVL_IO.stDO1002.bOutput		:=  GVL_IO.stEL2008.bDO2;
+//GVL_IO.stSO4001.bOutput		:=  GVL_IO.stEL2008.bDO3;
+// SPARE            		:=  GVL_IO.stEL2008.bDO4;
+// SPARE            		:=  GVL_IO.stEL2008.bDO5;
+// SPARE            		:=  GVL_IO.stEL2008.bDO6;
+// SPARE            		:=  GVL_IO.stEL2008.bDO7;
+// SPARE            		:=  GVL_IO.stEL2008.bDO8;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

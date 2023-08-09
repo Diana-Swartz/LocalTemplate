@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <POU Name="Safety" Id="{c68ea887-0d6f-444e-b0e8-2c43e43c41c4}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Safety
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// Call Safety Sequence Function Block
+GVL_Safety.fbSafetySeq(stSeq:=GVL_Safety.stSafetySeq);
+
+
+CASE GVL_Safety.stSafetySeq.nStep OF
+	0:	// Aborted
+		// Actions
+		
+		
+		// Step Transitions
+		IF (GVL_Safety.bResetTrigger AND GVL_Safety.stSafetySeq.bStepTimerDn) THEN
+			GVL_Safety.stSafetySeq.nNewStep := 1;
+		END_IF
+		
+	1:	// Safety Reset Step 1
+		// Actions
+		
+		// Step Transitions
+		IF GVL_Safety.stSafetySeq.bStepTimerDn THEN
+			GVL_Safety.stSafetySeq.nNewStep := 2;
+		END_IF 
+		
+	2:	// Safety Reset Step 2
+		// Actions
+
+		// Step Transitions
+		IF GVL_Safety.stSafetySeq.bStepTimerDn THEN
+			GVL_Safety.stSafetySeq.nNewStep := 3;
+		END_IF
+		
+	3:	// Safety Reset Step 3
+		// Actions
+
+		// Step Transitions
+		IF GVL_Safety.stSafetySeq.bStepTimerDn AND GVL_Safety.stSafety.bHealthy THEN
+			
+			GVL_Safety.stSafetySeq.nNewStep := 4;
+		END_IF 
+		
+	4: //System Reset Step 1
+		// Actions
+			
+		// Step Transitions
+		IF GVL_Safety.stSafetySeq.bStepTimerDn THEN
+			GVL_Safety.stSafetySeq.nNewStep := 5;
+		END_IF 
+
+	5:	//System Reset Step 2
+		// Actions
+
+		// Step Transitions
+		IF GVL_Safety.stSafetySeq.bStepTimerDn THEN
+			GVL_Safety.stSafetySeq.nNewStep := 6;
+		END_IF
+		
+	6: 	//System Reset Complete
+		//Actions
+		
+		//Step Transitions
+
+	
+END_CASE
+
+IF GVL_Safety.bResetTrigger THEN
+	GVL_Safety.stSafetySeq.nNewStep := 1;
+END_IF  
+
+IF NOT GVL_Safety.stSafety.bHealthy THEN
+	GVL_Safety.stSafetySeq.nNewStep := 0;
+END_IF	
+
+WriteToFlags();
+WriteToOutputs();]]></ST>
+    </Implementation>
+    <Action Name="WriteToFlags" Id="{0cc5ccc4-04f2-4c8d-9fd3-55a7ada31964}">
+      <Implementation>
+        <ST><![CDATA[
+
+
+
+//Safety Group Run
+IF 	GVL_Safety.stSafetySeq.nStep = 1 OR
+	GVL_Safety.stSafetySeq.nStep = 2 OR
+	GVL_Safety.stSafetySeq.nStep = 3 OR
+	GVL_Safety.stSafetySeq.nStep = 4 OR
+	GVL_Safety.stSafetySeq.nStep = 5 OR
+	GVL_Safety.stSafetySeq.nStep = 6
+THEN
+	GVL_Safety.bRun := TRUE;
+ELSE
+	GVL_Safety.bRun := FALSE;
+END_IF
+		
+//Safety Group Error Acknowledge Reset
+IF 
+	GVL_Safety.stSafetySeq.nStep = 2
+THEN
+	GVL_Safety.bErrorAck := TRUE;
+ELSE
+	GVL_Safety.bErrorAck := FALSE;
+END_IF			
+		
+
+//Safety Function Block Resets
+IF 
+	GVL_Safety.stSafetySeq.nStep = 2
+THEN
+	GVL_Safety.bReset := TRUE;
+ELSE
+	GVL_Safety.bReset := FALSE;
+END_IF	
+]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="WriteToOutputs" Id="{2af34665-6b1f-4b52-abb9-9b1e7f0dde7e}">
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Action>
+  </POU>
+</TcPlcObject>

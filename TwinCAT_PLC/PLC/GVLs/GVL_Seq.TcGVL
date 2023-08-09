@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="GVL_Seq" Id="{41119bbe-8c33-4a72-be14-39670986f951}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+//List all sequencies 
+
+//Example
+//S101	 								: ST_Sequence;
+//S102 									: ST_Sequence;
+
+(* Exmaple Sequencies *)
+stExampleSequence 						: ST_Sequence;
+ExampleSequence_bHomingRequired 		: BOOL;
+
+//Call  FB_Sequence for each sequence
+
+//Example
+//fbS101 								: FB_Sequence;
+//fbS102 								: FB_Sequence;
+
+(* Exmaple FB *)
+fbExampleSequence : FB_Sequence;
+
+// When used with conveyors , additions to Sequencies have been used on previous projects such as:
+//S101_RequestingToSend		: BOOL;
+//S101_ReadyToReceive       : BOOL; 
+
+// When used with moving parts , additions to Sequencies have been used on previous projects such as:
+//S101_bHomingRequired 		: BOOL;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.10">
+  <GVL Name="GVL_EAP" Id="{869b92e0-0e25-49db-96c4-df972947e61c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+
+// Set size of array according to EAP data to be exchanged.
+
+VAR_GLOBAL
+	aPubBool		AT %Q*	: ARRAY [0..15] OF BOOL;		// EAP Published Array of Booleans
+	aPubInt			AT %Q*	: ARRAY [0..15] OF INT;			// EAP Published Array of Integers
+	aPubReal		AT %Q*	: ARRAY [0..15] OF REAL;		// EAP Published Array of Reals
+	aSubBool		AT %I*	: ARRAY [0..15] OF BOOL;		// EAP Subscribed Array of Booleans
+	aSubInt			AT %I*	: ARRAY [0..15] OF INT;			// EAP Subscribed Array of Integers
+	aSubReal		AT %I*	: ARRAY [0..15] OF REAL;		// EAP Subscribed Array of Reals
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

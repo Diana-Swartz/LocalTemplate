@@ -1,0 +1,150 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0d7902c1-0f33-4917-b6f3-da93bb4f0b14}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>PLC</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{c72e30b5-fc93-42d6-adb1-b537fa9c2727}</Application>
+    <TypeSystem>{e1738d52-f8a2-4aa4-83f2-035213c843e9}</TypeSystem>
+    <Implicit_Task_Info>{82907d01-562d-4720-a5f5-588cbbbb99b0}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{5218fe4a-66c9-4d85-aba7-62e08901726f}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{df0c5e09-e691-488c-8c36-bb54fcac8259}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{ae6459ae-d49e-42e9-a731-e95baa10682e}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DUTs\Safety\ST_Safety.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\GVL_EAP.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_HMI.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_IO.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_System.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_Recipe.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_Safety.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\GVL_Seq.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\02 IO Mapping\InputMapping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\02 IO Mapping\OutputMapping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\03 Equipment\DeviceInputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\03 Equipment\DeviceOutputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\04 Program\ExampleSequence.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\06 Safety\Safety.TcPOU">
+      <SubType>Code</SubType>
+      <ExcludeFromBuild>false</ExcludeFromBuild>
+    </Compile>
+    <Compile Include="POUs\09 General\DataControl.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\10 EAP\EAP_PublisherMapping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\10 EAP\EAP_SubscriberMapping.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MachineStatePackML.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DUTs" />
+    <Folder Include="DUTs\Safety" />
+    <Folder Include="DUTs\PLC Cards" />
+    <Folder Include="GVLs" />
+    <Folder Include="POUs\09 General" />
+    <Folder Include="POUs\02 IO Mapping" />
+    <Folder Include="POUs\03 Equipment" />
+    <Folder Include="POUs\01 Function Blocks" />
+    <Folder Include="POUs\06 Safety" />
+    <Folder Include="POUs\04 Program" />
+    <Folder Include="POUs\10 EAP" />
+    <Folder Include="VISUs" />
+    <Folder Include="POUs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Utilities">
+      <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Utilities</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PLC.tmc">
+      <SubType>Content</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <LibraryReference Include="AX_Standard,1.24,Automate-X Ltd.">
+      <Namespace>AX_Standard</Namespace>
+    </LibraryReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <PlcProjectOptions>
+      <XmlArchive>
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
+      <v n="Name">"&lt;ProjectRoot&gt;"</v>
+      <d n="SubKeys" t="Hashtable" />
+      <d n="Values" t="Hashtable" />
+    </o>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
+    </PlcProjectOptions>
+  </ProjectExtensions>
+</Project>
